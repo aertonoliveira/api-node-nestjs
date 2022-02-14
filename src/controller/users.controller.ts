@@ -1,7 +1,14 @@
-import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
-import { CreateUserDto } from 'src/dtos/user/input/CreateUserDto';
-import { OutputUserDto } from 'src/dtos/user/output/output-user.dto';
-import { UsersService } from 'src/services/users.service';
+import {
+  Controller,
+  Post,
+  Body,
+  ValidationPipe,
+  Get,
+  Param,
+} from '@nestjs/common';
+import { CreateUserDto } from '../dtos/user/input/CreateUserDto';
+import { OutputUserDto } from '../dtos/user/output/output-user.dto';
+import { UsersService } from '../services/users.service';
 
 @Controller('users')
 export class UsersController {
@@ -26,5 +33,9 @@ export class UsersController {
       users,
       message: 'Usuários listados com sucesso',
     };
+  }
+  @Get(':id')
+  getUserById(@Param('id') id: string) {
+    return this.usersService.findById(id);
   }
 }

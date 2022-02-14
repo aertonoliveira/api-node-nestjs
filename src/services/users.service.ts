@@ -1,9 +1,9 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateUserDto } from 'src/dtos/user/input/CreateUserDto';
-import { User } from 'src/entity/user.entity';
-import { UserRole } from 'src/enums/user-roles.enum';
-import { UserRepository } from 'src/repository/user/users.repository';
+import { CreateUserDto } from '../dtos/user/input/CreateUserDto';
+import { User } from '../entity/user.entity';
+import { UserRole } from '../enums/user-roles.enum';
+import { UserRepository } from '../repository/user/users.repository';
 
 @Injectable()
 export class UsersService {
@@ -23,5 +23,8 @@ export class UsersService {
   }
   async getUsers(): Promise<User[]> {
     return this.userRepository.getUsers();
+  }
+  async findById(id): Promise<User> {
+    return this.userRepository.findOne(id);
   }
 }

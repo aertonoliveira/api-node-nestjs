@@ -10,7 +10,7 @@ import {
 
 @Entity()
 @Unique(['email'])
-export class User extends BaseEntity {
+export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -39,8 +39,8 @@ export class User extends BaseEntity {
   recoverToken: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt?: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt?: Date;
 }

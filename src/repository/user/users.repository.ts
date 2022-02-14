@@ -1,4 +1,4 @@
-import { User } from 'src/entity/user.entity';
+import { User } from '../../entity/user.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
@@ -6,8 +6,8 @@ import {
   ConflictException,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { CreateUserDto } from 'src/dtos/user/input/CreateUserDto';
-import { UserRole } from 'src/enums/user-roles.enum';
+import { CreateUserDto } from '../../dtos/user/input/CreateUserDto';
+import { UserRole } from '../../enums/user-roles.enum';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -26,7 +26,7 @@ export class UserRepository extends Repository<User> {
     user.salt = await bcrypt.genSalt();
     user.password = await this.hashPassword(password, user.salt);
     try {
-      await user.save();
+      await this.save(user);
       delete user.password;
       delete user.salt;
       return user;
