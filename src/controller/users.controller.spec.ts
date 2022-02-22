@@ -43,7 +43,7 @@ const userDtoInput: CreateUserDto = {
   email: 'kraus.mal@gmail.gmail',
   name: 'kraus',
   password: '123456',
-  passwordConfirmation: 'ADMIN',
+  passwordConfirmation: '123456',
 };
 describe('UserController', () => {
   let controller: UsersController;
@@ -86,9 +86,8 @@ describe('UserController', () => {
   // });
 
   //criar teste para criar usuário
-  it('Deve criar um usuário', async () => {
+  it('Cadastro usuario', async () => {
     const result = await controller.createAdminUser(userDtoInput);
-    console.log(result);
     expect(result).toEqual(userDtoOutput);
   });
 

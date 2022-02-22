@@ -20,11 +20,17 @@ export class UsersController {
   async createAdminUser(
     @Body(ValidationPipe) createUserDto: CreateUserDto,
   ): Promise<OutputUserDto> {
-    const user = await this.usersService.createAdminUser(createUserDto);
-    return {
-      user,
-      message: 'Administrador cadastrado com sucesso',
-    };
+    try {
+      const user = await this.usersService.createAdminUser(createUserDto);
+      return {
+        user,
+        message: 'Usuário criado com sucesso',
+      };
+    } catch (error: any) {
+      return {
+        message: error.message,
+      };
+    }
   }
   @Get()
   async getUsers(): Promise<OutputUserDto> {
