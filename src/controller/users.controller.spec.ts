@@ -39,10 +39,10 @@ const userDtoOutput: OutputUserDto = {
   message: 'Administrador cadastrado com sucesso',
 };
 const userDtoInput: CreateUserDto = {
-  email: 'kraus.mal@gmail.gmail',
-  name: 'kraus',
-  password: '123456',
-  passwordConfirmation: '123456',
+  email: "kraus.mal@gmail.gmail",
+  name: "kraus",
+  password: "123456",
+  passwordConfirmation: "123456",
 };
 describe('UserController', () => {
   let controller: UsersController;
