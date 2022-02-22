@@ -29,10 +29,9 @@ const userEntity: User = {
   name: 'kraus',
   role: 'ADMIN',
   status: true,
-  password: '$2b$10$cyKpvVhtP93XHSVvQe7Pi.vAqY0XvdcAwCgAwkCud2Epp78x7RfNm',
-  salt: '$2b$10$cyKpvVhtP93XHSVvQe7Pi.',
-  confirmationToken:
-    'c19d84d0236b22ccf0b04326bb75b9df0166adad0ab82229bf82afa9bce86043',
+  password: '',
+  salt: '',
+  confirmationToken: '',
   recoverToken: '',
 }
 const userDtoOutput: OutputUserDto = {
